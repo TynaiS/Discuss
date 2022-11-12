@@ -3,9 +3,9 @@ defmodule DiscussWeb.UserControllerTest do
 
   import Discuss.AccountsFixtures
 
-  @create_attrs %{"email.string": "some email.string"}
-  @update_attrs %{"email.string": "some updated email.string"}
-  @invalid_attrs %{"email.string": nil}
+  @create_attrs %{email: "some email"}
+  @update_attrs %{email: "some updated email"}
+  @invalid_attrs %{email: nil}
 
   describe "index" do
     test "lists all users", %{conn: conn} do
@@ -55,7 +55,7 @@ defmodule DiscussWeb.UserControllerTest do
       assert redirected_to(conn) == Routes.user_path(conn, :show, user)
 
       conn = get(conn, Routes.user_path(conn, :show, user))
-      assert html_response(conn, 200) =~ "some updated email.string"
+      assert html_response(conn, 200) =~ "some updated email"
     end
 
     test "renders errors when data is invalid", %{conn: conn, user: user} do

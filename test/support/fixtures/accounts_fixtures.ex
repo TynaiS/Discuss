@@ -11,7 +11,22 @@ defmodule Discuss.AccountsFixtures do
     {:ok, user} =
       attrs
       |> Enum.into(%{
-        email.string: "some email.string"
+        email: "some email"
+      })
+      |> Discuss.Accounts.create_user()
+
+    user
+  end
+
+  @doc """
+  Generate a user.
+  """
+
+  def user_fixture(attrs \\ %{}) do
+    {:ok, user} =
+      attrs
+      |> Enum.into(%{
+        email: "some email"
       })
       |> Discuss.Accounts.create_user()
 

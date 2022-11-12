@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Email.string</th>
+      <th>Email</th>
 
       <th></th>
     </tr>
@@ -11,7 +11,7 @@
   <tbody>
 <%= for user <- @users do %>
     <tr>
-      <td><%= user.email.string %></td>
+      <td><%= user.email %></td>
 
       <td>
         <span><%= link "Show", to: Routes.user_path(@conn, :show, user) %></span>
